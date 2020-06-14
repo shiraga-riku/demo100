@@ -20,8 +20,8 @@ public class RecipeService {
 		return this.recipeDao.findAll();
 	}
 
-	public List<Recipe> search(String recipe) {
-		return this.recipeDao.search(recipe);
+	public List<Recipe> search(String recipe,Double beforekcal,Double afterkcal) {
+		return this.recipeDao.search(recipe,beforekcal,afterkcal);
 	}
 
 	@Transactional

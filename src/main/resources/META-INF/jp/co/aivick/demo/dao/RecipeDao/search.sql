@@ -1,4 +1,16 @@
 select
-	/*%expand*/*
+    /*%expand*/*
 from recipe
-where name LIKE /* "%" + recipe + "%" */'a'
+where
+/*%if recipe != null*/
+	name
+    Like /* "%" + recipe "%" + */'a'
+/*%end*/
+/*%if beforekcal != null*/
+	AND
+    /*beforekcal*/10 <= kcal
+/*%end*/
+/*%if afterkcal != null*/
+	AND
+    /*afterkcal*/56 >= kcal
+/*%end*/

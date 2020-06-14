@@ -10,12 +10,15 @@
 <body>
 	<div layout:fragment="content">
 		<form action="/recipe/search" method="get">
-			<input type="search" name="search" placeholder="kennsaku">
+			<input type="search" name="search" placeholder="レシピ名"><br/>
+			<input type="search" name="beforekcal" placeholder="カロリー">~
+			<input type="search" name="afterkcal" placeholder="カロリー">
 			<button type="submit">検索</button>
 		</form>
 		<p th:each="recipe : ${recipeList}"
 			th:object="${recipe}">
 			<a th:text="*{name}"></a>
+			<a th:text="*{kcal}"></a>
 		</p>
 	</div>
 </body>

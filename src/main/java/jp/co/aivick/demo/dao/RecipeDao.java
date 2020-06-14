@@ -20,7 +20,7 @@ public interface RecipeDao {
 	List<Recipe> findAll();
 
 	@Select
-	List<Recipe> search(String recipe);
+	List<Recipe> search(String recipe,Double beforekcal,Double afterkcal);
 
 	@Insert
 	int insert(Recipe recipe);

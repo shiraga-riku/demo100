@@ -77,11 +77,11 @@ public class RecipeController {
 	}
 
 	@GetMapping("/search")
-	public String search(@RequestParam(name = "search", required = false) String recipe, Model model) {
-		if (recipe==null) {
-			return "recipe/search.html";
-		}
-		List<Recipe> recipes = recipeService.search(recipe);
+	public String search(@RequestParam(name = "search", required = false) String recipe,@RequestParam(name="beforekcal", required = false)Double beforekcal,@RequestParam(name="afterkcal", required = false)Double afterkcal, Model model) {
+//		if (recipe==null&&beforekcal==null&&afterkcal==null) {
+//			return "recipe/search.html";
+//		}
+		List<Recipe> recipes = recipeService.search(recipe,beforekcal,afterkcal);
 		model.addAttribute("recipeList", recipes);
 		return "recipe/search.html";
 	}
